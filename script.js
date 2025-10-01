@@ -180,6 +180,8 @@ const fullKaraokeToLao = {
         "ນົງ": "nong",
         "ນ້ອງ": "norng",
         "ນຽງ": "nieng",
+	"ໝັງ": "Mung",
+	"ຫມັງ": "Mung",
         "ເນື່ອງ": "nueang",
         "ນຳ": "nam",
         "ນ້ຳ": "num",
@@ -4179,7 +4181,6 @@ const fullKaraokeToLao = {
   "york": "ຢອກ",
   "daiy": "ດ້າຍ",
   "thue": "ຖື",
-  "ha": "ຮາ",
   "lee": "ຫຼີ",
   "haiy": "ຮ້າຍ",
   "si": "ສິ",
@@ -4595,7 +4596,6 @@ const fullKaraokeToLao = {
   "touy": "ຕູ້ຍ",
   "tiw": "ຕິວ",
   "teo": "ແຕວ",
-  "ha": "ຮະ",
   "hi": "ຮິ",
   "hee": "ຮີ",
   "hou": "ຮູ",
@@ -4626,7 +4626,6 @@ const fullKaraokeToLao = {
   "herd": "ເຮີດ",
   "herd": "ເຫີດ",
   "huad": "ຮວດ",
-  "ha": "ຫະ",
   "hi": "ຫິ",
   "hee": "ຫີ",
   "hou": "ຫູ",
@@ -5023,7 +5022,7 @@ const fullKaraokeToLao = {
 "Athong": "ອາທອງ",
 "Pin": "ປິນ",
 "Aao": "ເອົ້າ",
-"Ha": "ຮາ",
+"Haha": "ຮາທ",
 "jung": "ຈັງ",
 "larp": "ຫຼາບ",
 "harn": "ຫານ",
@@ -6073,8 +6072,60 @@ const fullKaraokeToLao = {
 	"ໂອ": "O",
 "ເເລ້ວ": "leo",
 	"ໂອນ": "Aon",
-"u": "ຢູ່",
+		"arp nam": "ອາບນ້້ຳ",
+"ph day": "ເພີ່ນເດ",
+"br hu day": "ບໍຮູ້ເດ",
 "m": "ໂມງ",
+"h y": "ເຮັດຫຍັງ",
+"pen y": "ເປັນຫຍັງ",
+"ka dai": "ກະໄດ້",
+"khue vah": "ຄືວ່າ",
+"noy": "ນ້ອຍ",
+"noy nueng": "ໜ້ອຍໜຶ່ງ",
+"krt": "ກອດ",
+"sia": "ເສຍ",
+"ເສີຍ": "sery",
+"vai": "ໄວ",
+"hun": "ຫັ້ນ",
+"hun pai": "ຫັນໄປ",
+"hun ma": "ຫັນມາ",
+"vai jai": "ໄວ້ໃຈ",
+"vai nai": "ໄວ້ໃນ",
+"ຕ້ອງ": "trng",
+	"ໝັງ": "Mung",
+	"ຫມັງ": "Mung",
+	"ໜັງ": "nung",
+	"ຫນັງ": "nung",
+"vao": "ເວົ້າ",
+"br trng": "ບໍ່ຕ້ອງ",
+"yark laiy": "ຍາກຫຼາຍ",
+"yark phod": "ຍາກໂພດ",
+"yark na": "ຍາກນະ",
+"yark parn": "ຍາກປານ",
+"yark Kc": "ຍາກເກາະ",
+"yark br": "ຍາກບໍ",
+"yark ku": "ຍາກກູ",
+"yark kh": "ຍາກເຂົາ",
+"yark khoi": "ຍາກຂ້ອຍ",
+"hn nung sue": "ຮຽນໜັງສື່",
+"nung sue": "ໜັງສື່",
+"br ao": "ບໍ່ເອົາ",
+"br dai": "ບໍ່ໄດ້",
+"br mi": "ບໍ່ມີ",
+"yar": "ຢ່າ",
+"di": "ດີ",
+"bye2": "ບາຍໆ",
+"bye": "ບາຍ",
+"tam": "ຕຳ",
+	"Ai": "ອ້າຍ",
+	"haha": "ຮາຮາ",
+	"oh": "ໂອ່",
+	"nong": "ນ້ອງ",
+	"mai": "ໃໝ່",
+	"day": "ເດ",
+  "ຊິດີ": "c d",
+  "ຊີດີ": "c d",
+"u": "ຢູ່",
   "d": "ດີ",
   "t": "ທີ່",
 "ໆ": "2",
@@ -6119,24 +6170,33 @@ function karaokeToLao(text) {
 }
 
 function translateText() {
-    const inputText = document.getElementById('inputText').value.trim();
-    const outputDiv = document.getElementById('output');
-    const loading = document.getElementById('loading');
-    const copyBtn = document.getElementById('copyBtn');
+  const inputText = document.getElementById('inputText').value.trim();
+  const outputDiv = document.getElementById('output');
+  const loading = document.getElementById('loading');
+  const copyBtn = document.getElementById('copyBtn');
 
-    if (!inputText) return;
+  if (!inputText) return;
 
-    loading.style.display = 'block';
-    outputDiv.innerHTML = '';
-    copyBtn.style.display = 'none';
+  loading.style.display = 'block';
+  outputDiv.innerHTML = '';
+  copyBtn.style.display = 'none';
 
-    setTimeout(() => {
-        const result = karaokeToLao(inputText);
+  setTimeout(() => {
+      const result = karaokeToLao(inputText);
 
-        outputDiv.innerText = result;
-        loading.style.display = 'none';
-        copyBtn.style.display = 'block';
-    }, 200);
+      outputDiv.innerText = result;
+      loading.style.display = 'none';
+      copyBtn.style.display = 'block';
+      
+      // นับจำนวนการแปลและแสดงโฆษณา
+      translationCount++;
+      
+      // แสดงโฆษณาทุกครั้งที่แปล
+      setTimeout(() => {
+          showProductAd();
+      }, 1000); // แสดงหลังจากแปลเสร็จ 1 วินาที
+      
+  }, 200);
 }
 
 function clearText() {
@@ -6162,4 +6222,12 @@ function copyOutput() {
             console.error("Failed to copy text:", err);
         });
 }
+
+
+
+
+
+
+
+
 
